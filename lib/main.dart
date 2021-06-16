@@ -24,6 +24,7 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
+  bool alreadyClicked = false; //하트아이콘 상태
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,8 +58,18 @@ class _MainState extends State<Main> {
               ),
               IconButton(
                 icon: Icon(Icons.favorite),
-                onPressed: () {},
-                color: Colors.white,
+                onPressed: () {
+                  //클릭하면 하트 상태 변화
+                  setState(() {
+                    if (alreadyClicked) {
+                      alreadyClicked = false;
+                    } else {
+                      alreadyClicked = true;
+                    }
+                    print(alreadyClicked);
+                  });
+                },
+                color: alreadyClicked ? Colors.pink : Colors.white,
               )
             ],
           ),
