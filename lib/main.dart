@@ -55,6 +55,7 @@ class _MainState extends State<Main> {
                 "https://cdn.pixabay.com/photo/2019/04/10/23/51/dog-4118585_960_720.jpg",
                 fit: BoxFit.cover, // 세로비율 3차지하게하고, 높이에 맞게 확대
                 width: double.infinity,
+                height: double.infinity,
               ),
               IconButton(
                 icon: Icon(Icons.favorite),
