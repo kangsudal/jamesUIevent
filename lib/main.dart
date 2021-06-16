@@ -47,9 +47,20 @@ class _MainState extends State<Main> {
       children: [
         Expanded(
           flex: 3,
-          child: Image.network(
-            "https://cdn.pixabay.com/photo/2019/04/10/23/51/dog-4118585_960_720.jpg",
-            fit: BoxFit.fitHeight, // 세로비율 3차지하게하고, 높이에 맞게 확대
+          child: Stack(
+            alignment: Alignment.bottomRight,
+            children: [
+              Image.network(
+                "https://cdn.pixabay.com/photo/2019/04/10/23/51/dog-4118585_960_720.jpg",
+                fit: BoxFit.cover, // 세로비율 3차지하게하고, 높이에 맞게 확대
+                width: double.infinity,
+              ),
+              IconButton(
+                icon: Icon(Icons.favorite),
+                onPressed: () {},
+                color: Colors.white,
+              )
+            ],
           ),
         ),
         Expanded(
@@ -58,7 +69,7 @@ class _MainState extends State<Main> {
             color: Colors.yellow,
             child: Align(
               //글씨 바닥에 붙게
-              alignment: Alignment.bottomCenter,
+              alignment: Alignment.bottomLeft,
               child: Text(
                 "Application Title",
                 overflow: TextOverflow.ellipsis,
