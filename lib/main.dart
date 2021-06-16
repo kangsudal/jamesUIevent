@@ -78,7 +78,7 @@ class _MainState extends State<Main> {
         Expanded(
           flex: 1,
           child: Container(
-            color: Colors.yellow,
+            // color: Colors.yellow,
             child: Align(
               //글씨 바닥에 붙게
               alignment: Alignment.bottomLeft,
@@ -119,9 +119,25 @@ class _MainState extends State<Main> {
             shrinkWrap: true,
             children: [
               Text(
-                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n"
-                "bbbbbbbbbbb\n"
-                "cccccccccccccccddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+                '''Mm, oh, hey, Ratatat
+Yeah, na-na-na-na
+Na-na-na-na
+Crush a bit, little bit
+Roll it up, take a hit
+Feeling lit, feeling right
+Two AM, summer night, I don't care
+Hand on the wheel
+Driving drunk I'm doing my thang
+Rolling the Midwest side and out
+Living my life, getting our dreams
+People told me slow my roll
+I'm screaming out, "Fuck that"
+I'ma do just what I want
+Looking ahead no turning back
+If I fall if I die
+Know I lived it to the fullest
+If I fall if I die
+Know I lived and missed some bullets''',
               ),
             ],
           ),
@@ -185,7 +201,7 @@ class _MainState extends State<Main> {
           children: [
             Expanded(
               child: Container(
-                color: Colors.lightGreen,
+                // color: Colors.lightGreen,
                 child: FractionallySizedBox(
                   widthFactor: 0.9,
                   heightFactor: 0.9,
@@ -195,7 +211,7 @@ class _MainState extends State<Main> {
             ),
             Expanded(
               child: Container(
-                color: Colors.red,
+                // color: Colors.red,
                 child: FractionallySizedBox(
                   widthFactor: 0.9,
                   heightFactor: 0.9,
