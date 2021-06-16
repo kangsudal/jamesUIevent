@@ -75,35 +75,78 @@ class _MainState extends State<Main> {
   }
 
   Right() {
+    List imageurl = [
+      "https://cdn.pixabay.com/photo/2020/04/24/23/34/magnolia-5088974_960_720.jpg",
+      "https://cdn.pixabay.com/photo/2020/06/30/14/06/blossom-5356482_960_720.jpg",
+      "https://cdn.pixabay.com/photo/2016/02/17/19/08/lotus-1205631_960_720.jpg",
+      "https://cdn.pixabay.com/photo/2016/08/14/12/35/water-lily-1592771_960_720.jpg",
+    ];
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("SubTitle"),
-        Text(
-          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n"
-          "bbbbbbbbbbb\n"
-          "ccccccccccccccc",
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 40.0),
+          child: Text(
+            "SubTitle",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+          ),
         ),
         Expanded(
           child: ListView(
             shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
             children: [
-              Image.network(
-                "https://cdn.pixabay.com/photo/2020/06/30/14/06/blossom-5356482_960_720.jpg",
-              ),
-              Image.network(
-                "https://cdn.pixabay.com/photo/2020/04/24/23/34/magnolia-5088974_960_720.jpg",
-              ),
-              Image.network(
-                "https://cdn.pixabay.com/photo/2016/02/17/19/08/lotus-1205631_960_720.jpg",
-              ),
-              Image.network(
-                "https://cdn.pixabay.com/photo/2016/08/14/12/35/water-lily-1592771_960_720.jpg",
+              Text(
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n"
+                "bbbbbbbbbbb\n"
+                "cccccccccccccccddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
               ),
             ],
           ),
         ),
+        Expanded(
+          child: ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemCount: imageurl.length,
+            itemBuilder: (context, idx) {
+              return imageContainer(imageurl[idx], idx);
+            },
+          ),
+        ),
       ],
+    );
+  }
+
+  Container imageContainer(imageurl, int idx) {
+    return Container(
+      width: 170, //overflow 안나게 줘야함
+      margin: EdgeInsets.only(right: 8),
+      child: Column(
+        children: [
+          Expanded(
+            flex: 8,
+            child:
+                // Placeholder(),
+                Image.network(
+              imageurl,
+              fit: BoxFit.cover,
+              width: double.infinity, //BoxFit.cover 를 써도 생기는 공백을 없애준다
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              width: double.infinity,
+              color: Colors.white,
+              child: Align(
+                //Text don't take the whole Column width.
+                alignment: Alignment.center,
+                child: Text("Item $idx"),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -114,7 +157,7 @@ class _MainState extends State<Main> {
       child: Container(
         color: Colors.black12,
         width: MediaQuery.of(context).size.width - padding * 2,
-        height: MediaQuery.of(context).size.height / 2,
+        height: MediaQuery.of(context).size.height * 3 / 5,
         child: Row(
           children: [
             Expanded(
